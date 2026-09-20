@@ -1,20 +1,20 @@
 <?php
 /**
- * Helper functions for Recently Viewed Products.
+ * Helper functions for Product View History for WooCommerce.
  *
- * @package Recently_Viewed_Products
+ * @package Product_View_History_For_WooCommerce
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-function recently_viewed_products_bootstrap() {
-	if ( ! class_exists( 'Recently_Viewed_Products_Plugin' ) ) {
-		require_once plugin_dir_path( __FILE__ ) . 'class-recently-viewed-products.php';
+function product_view_history_for_woocommerce_bootstrap() {
+	if ( ! class_exists( 'Product_View_History_For_WooCommerce_Plugin' ) ) {
+		require_once plugin_dir_path( __FILE__ ) . 'class-product-view-history-for-woocommerce.php';
 	}
 
-	new Recently_Viewed_Products_Plugin();
+	new Product_View_History_For_WooCommerce_Plugin();
 }
 
-add_action( 'plugins_loaded', 'recently_viewed_products_bootstrap' );
+add_action( 'plugins_loaded', 'product_view_history_for_woocommerce_bootstrap' );

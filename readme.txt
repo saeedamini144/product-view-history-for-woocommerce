@@ -1,9 +1,9 @@
-=== Recently Viewed Products ===
+=== Product View History for WooCommerce ===
 Contributors: saeedamini
 Donate link: https://github.com/saeedamini
 Tags: woocommerce, products, recently viewed, shortcode
 Requires at least: 6.0
-Tested up to: 6.5
+Tested up to: 7.1
 Requires PHP: 7.4
 Stable tag: 1.3
 License: GPL-2.0-or-later
@@ -11,23 +11,23 @@ License: GPL-2.0-or-later
 Displays a clean, responsive grid of the products a visitor has recently viewed on a WooCommerce store.
 
 == Description ==
-Recently Viewed Products is a lightweight WooCommerce plugin that tracks the products a visitor views and displays them in a polished product grid using the shortcode [recently_viewed_products].
+Product View History for WooCommerce is a lightweight plugin that tracks the products a visitor views and displays them in a polished product grid using the shortcode [product_view_history_for_woocommerce].
 
 It helps increase engagement and encourage repeat purchases by reminding visitors of products they have already explored. The plugin is fully responsive, works with most themes, and can be customized from the WordPress admin area.
 
 == Installation ==
-1. Upload the plugin files to the /wp-content/plugins/recently-viewed-products directory.
+1. Upload the plugin files to the /wp-content/plugins/product-view-history-for-woocommerce directory.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. Place the shortcode [recently_viewed_products] on any page, post, or template where you want the recently viewed products section to appear.
+3. Place the shortcode [product_view_history_for_woocommerce] on any page, post, or template where you want the product view history section to appear.
 
 == Usage ==
 Use the default shortcode to display the section:
 
-[recently_viewed_products]
+[product_view_history_for_woocommerce]
 
 You can also customize the output with shortcode attributes:
 
-[recently_viewed_products limit="6" title="Recently Seen" show_price="no"]
+[product_view_history_for_woocommerce limit="6" title="Recently Seen" show_price="no"]
 
 == Frequently Asked Questions ==
 
