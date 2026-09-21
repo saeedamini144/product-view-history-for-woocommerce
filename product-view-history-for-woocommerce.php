@@ -18,6 +18,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-load_plugin_textdomain( 'product-view-history-for-woocommerce', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-
 require_once plugin_dir_path( __FILE__ ) . 'includes/functions.php';

@@ -136,7 +136,7 @@ class Product_View_History_For_WooCommerce_Plugin {
 		$viewed_products = array();
 
 		if ( isset( $_COOKIE[ $cookie_name ] ) ) {
-			$cookie_value = wp_unslash( $_COOKIE[ $cookie_name ] );
+			$cookie_value = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
 			if ( is_string( $cookie_value ) ) {
 				$decoded = json_decode( $cookie_value, true );
 				if ( is_array( $decoded ) ) {
@@ -187,7 +187,7 @@ class Product_View_History_For_WooCommerce_Plugin {
 			return '';
 		}
 
-		$cookie_value = wp_unslash( $_COOKIE[ $cookie_name ] );
+		$cookie_value = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
 		if ( ! is_string( $cookie_value ) ) {
 			return '';
 		}
@@ -220,11 +220,14 @@ class Product_View_History_For_WooCommerce_Plugin {
 			return '';
 		}
 
-		ob_start();
 		if ( ! self::$styles_printed ) {
-			echo '<style>' . $this->get_inline_styles() . '</style>';
+			wp_register_style( 'product-view-history-for-woocommerce', false, array(), '1.3' );
+			wp_enqueue_style( 'product-view-history-for-woocommerce' );
+			wp_add_inline_style( 'product-view-history-for-woocommerce', $this->get_inline_styles() );
 			self::$styles_printed = true;
 		}
+
+		ob_start();
 		?>
 		<div class="product-view-history-for-woocommerce-wrapper">
 			<span class="pvh-section-title"><?php echo esc_html( $title ); ?></span>
