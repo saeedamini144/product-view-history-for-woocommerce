@@ -1,15 +1,15 @@
 <?php
 /**
- * Main plugin class for Product View History for WooCommerce.
+ * Main plugin class for WebSemicolon Product View History for WooCommerce.
  *
- * @package Product_View_History_For_WooCommerce
+ * @package WebSemicolon_Product_View_History_For_WooCommerce
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Product_View_History_For_WooCommerce_Plugin {
+class WebSemicolon_Product_View_History_For_WooCommerce_Plugin {
 
 	private static $styles_printed = false;
 
@@ -26,10 +26,10 @@ class Product_View_History_For_WooCommerce_Plugin {
 
 	public function register_admin_menu() {
 		add_menu_page(
-			__( 'Product View History for WooCommerce', 'product-view-history-for-woocommerce' ),
-			__( 'Product View History for WooCommerce', 'product-view-history-for-woocommerce' ),
+			__( 'Product View History for WooCommerce', 'websemicolon-product-view-history-for-woocommerce' ),
+			__( 'Product View History for WooCommerce', 'websemicolon-product-view-history-for-woocommerce' ),
 			'manage_options',
-			'product-view-history-for-woocommerce',
+			'websemicolon-product-view-history-for-woocommerce',
 			array( $this, 'render_admin_page' ),
 			'dashicons-visibility',
 			26
@@ -71,30 +71,30 @@ class Product_View_History_For_WooCommerce_Plugin {
 		}
 
 		$display_count = absint( get_option( 'product_view_history_for_woocommerce_display_count', 5 ) );
-		$display_title = sanitize_text_field( get_option( 'product_view_history_for_woocommerce_title', __( 'Product View History for WooCommerce', 'product-view-history-for-woocommerce' ) ) );
+		$display_title = sanitize_text_field( get_option( 'product_view_history_for_woocommerce_title', __( 'Product View History for WooCommerce', 'websemicolon-product-view-history-for-woocommerce' ) ) );
 		$show_price = in_array( strtolower( get_option( 'product_view_history_for_woocommerce_show_price', 'yes' ) ), array( 'yes', 'no' ), true ) ? 'yes' : 'no';
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html__( 'Product View History for WooCommerce', 'product-view-history-for-woocommerce' ); ?></h1>
-			<p><?php echo esc_html__( 'Use the shortcode below to display the product view history anywhere on your site.', 'product-view-history-for-woocommerce' ); ?></p>
+			<h1><?php echo esc_html__( 'Product View History for WooCommerce', 'websemicolon-product-view-history-for-woocommerce' ); ?></h1>
+			<p><?php echo esc_html__( 'Use the shortcode below to display the product view history anywhere on your site.', 'websemicolon-product-view-history-for-woocommerce' ); ?></p>
 			<p><code>[product_view_history_for_woocommerce]</code></p>
-			<p><?php echo esc_html__( 'You can also override the default settings with shortcode attributes:', 'product-view-history-for-woocommerce' ); ?></p>
+			<p><?php echo esc_html__( 'You can also override the default settings with shortcode attributes:', 'websemicolon-product-view-history-for-woocommerce' ); ?></p>
 			<p><code>[product_view_history_for_woocommerce limit="6" title="Recently Seen" show_price="no"]</code></p>
 			<form method="post" action="options.php">
 				<?php settings_fields( 'product_view_history_for_woocommerce_settings' ); ?>
 				<table class="form-table">
 					<tr>
 						<th scope="row">
-							<label for="product_view_history_for_woocommerce_display_count"><?php echo esc_html__( 'Number of products to display', 'product-view-history-for-woocommerce' ); ?></label>
+							<label for="product_view_history_for_woocommerce_display_count"><?php echo esc_html__( 'Number of products to display', 'websemicolon-product-view-history-for-woocommerce' ); ?></label>
 						</th>
 						<td>
 							<input type="number" min="1" max="10" name="product_view_history_for_woocommerce_display_count" id="product_view_history_for_woocommerce_display_count" value="<?php echo esc_attr( $display_count ); ?>" class="small-text" />
-							<p class="description"><?php echo esc_html__( 'Maximum value is 10.', 'product-view-history-for-woocommerce' ); ?></p>
+							<p class="description"><?php echo esc_html__( 'Maximum value is 10.', 'websemicolon-product-view-history-for-woocommerce' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="product_view_history_for_woocommerce_title"><?php echo esc_html__( 'Section title', 'product-view-history-for-woocommerce' ); ?></label>
+							<label for="product_view_history_for_woocommerce_title"><?php echo esc_html__( 'Section title', 'websemicolon-product-view-history-for-woocommerce' ); ?></label>
 						</th>
 						<td>
 							<input type="text" name="product_view_history_for_woocommerce_title" id="product_view_history_for_woocommerce_title" value="<?php echo esc_attr( $display_title ); ?>" class="regular-text" />
@@ -102,12 +102,12 @@ class Product_View_History_For_WooCommerce_Plugin {
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="product_view_history_for_woocommerce_show_price"><?php echo esc_html__( 'Show product price', 'product-view-history-for-woocommerce' ); ?></label>
+							<label for="product_view_history_for_woocommerce_show_price"><?php echo esc_html__( 'Show product price', 'websemicolon-product-view-history-for-woocommerce' ); ?></label>
 						</th>
 						<td>
 							<select name="product_view_history_for_woocommerce_show_price" id="product_view_history_for_woocommerce_show_price">
-									<option value="yes" <?php selected( $show_price, 'yes' ); ?>><?php echo esc_html__( 'Yes', 'product-view-history-for-woocommerce' ); ?></option>
-									<option value="no" <?php selected( $show_price, 'no' ); ?>><?php echo esc_html__( 'No', 'product-view-history-for-woocommerce' ); ?></option>
+									<option value="yes" <?php selected( $show_price, 'yes' ); ?>><?php echo esc_html__( 'Yes', 'websemicolon-product-view-history-for-woocommerce' ); ?></option>
+									<option value="no" <?php selected( $show_price, 'no' ); ?>><?php echo esc_html__( 'No', 'websemicolon-product-view-history-for-woocommerce' ); ?></option>
 							</select>
 						</td>
 					</tr>
@@ -165,13 +165,13 @@ class Product_View_History_For_WooCommerce_Plugin {
 
 	public function render_products( $atts = array() ) {
 		if ( ! class_exists( 'WooCommerce' ) ) {
-			return '<p>' . esc_html__( 'WooCommerce is required for this plugin to work.', 'product-view-history-for-woocommerce' ) . '</p>';
+			return '<p>' . esc_html__( 'WooCommerce is required for this plugin to work.', 'websemicolon-product-view-history-for-woocommerce' ) . '</p>';
 		}
 
 		$atts = shortcode_atts(
 			array(
 				'limit'      => get_option( 'product_view_history_for_woocommerce_display_count', 5 ),
-				'title'      => get_option( 'product_view_history_for_woocommerce_title', __( 'Product View History for WooCommerce', 'product-view-history-for-woocommerce' ) ),
+				'title'      => get_option( 'product_view_history_for_woocommerce_title', __( 'Product View History for WooCommerce', 'websemicolon-product-view-history-for-woocommerce' ) ),
 				'show_price' => get_option( 'product_view_history_for_woocommerce_show_price', 'yes' ),
 			),
 			$atts,
@@ -221,9 +221,9 @@ class Product_View_History_For_WooCommerce_Plugin {
 		}
 
 		if ( ! self::$styles_printed ) {
-			wp_register_style( 'product-view-history-for-woocommerce', false, array(), '1.3' );
-			wp_enqueue_style( 'product-view-history-for-woocommerce' );
-			wp_add_inline_style( 'product-view-history-for-woocommerce', $this->get_inline_styles() );
+			wp_register_style( 'websemicolon-product-view-history-for-woocommerce', false, array(), '1.3' );
+			wp_enqueue_style( 'websemicolon-product-view-history-for-woocommerce' );
+			wp_add_inline_style( 'websemicolon-product-view-history-for-woocommerce', $this->get_inline_styles() );
 			self::$styles_printed = true;
 		}
 
